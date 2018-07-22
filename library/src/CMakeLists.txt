@@ -6,7 +6,8 @@ add_library(mylib mylib.cpp)
 target_include_directories(mylib PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
-)
+  )
+add_library(myns::mylib ALIAS mylib)
 
 # Install
 install(TARGETS mylib EXPORT mylib-targets

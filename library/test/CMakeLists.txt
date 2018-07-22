@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.5.1)
 project(mylib-tests)
 
-find_package(mylib CONFIG REQUIRED)
+if (NOT TARGET mylib)
+  find_package(mylib CONFIG REQUIRED)
+endif()
 
 enable_testing()
 # TODO This fails on Ubuntu 16.04 with libgtest-dev package installed - why?
